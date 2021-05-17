@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+        <article class="blog-post">
+            <h2 class="blog-post-title">{{ post.title }}</h2>
+            <p class="blog-post-meta"> {{ post.created_at | date:'d, M Y' }} by <a href="#">{{ post.author.get_full_name }}</a></p>
+
+            {{ post.resume | safe }}
+
+            {{ post.content | safe }}
+        </article>
+
+    <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary" href="/">Voltar a listagem de posts</a>
+    </nav>
+{% endblock %}
